@@ -263,7 +263,7 @@ class DfUtilization(PluginInstanceUtilization):
             if t > self.last_time:
                 for plugin_instance in self.metrics[t].keys():
                     m = self.metrics[t][plugin_instance]
-                    if len(m) == 3:
+                    if "df_complex.used" in m and "df_complex.free" in m:
                         used = m["df_complex.used"][0]
                         free = m["df_complex.free"][0]
                         total = used + free
